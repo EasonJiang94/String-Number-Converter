@@ -64,11 +64,8 @@ def number_to_string(num):
 
 def main():
     for test_num in range(10000000):
-        # for test_num in range():
-        # test_num = 555555531 # just use fake input 
         test_str = number_to_string(test_num)
-        print(test_str)
-        ans_num = solve(test_num)
+        ans_num = solve(test_str)
         if test_num == ans_num:
             # print("Pass")
             pass
@@ -76,6 +73,8 @@ def main():
             print("Fail")
             print("-- str : {}".format(test_str))
             print("-- ans : {}".format(ans_num))
+            break
+    print("Congratulation! Pass!")
 
 if __name__ == "__main__":
     main()
