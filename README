@@ -1,0 +1,9 @@
+# String To Number
+## Problem Definition
+It's a text-number converter. For example : 
+```
+input : fifty five
+output : 55
+```
+The input range is [0, 10^9-1]
+The input always is a string type, and the output should be a integer.
