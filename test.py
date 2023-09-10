@@ -56,7 +56,7 @@ def number_to_string_3digit(number)->str:
             else:
                 return "{}-{}".format(ten_text[ten_digit_number], 
                                         single_digit_text[single_digit_number])
-    else :
+    else:
         hundred_digit = int(number / 100)
         the_rest = number % 100
         hundred_text = "{} hundred".format(single_digit_text[hundred_digit])
