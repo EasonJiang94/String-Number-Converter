@@ -1,6 +1,9 @@
 from .str2num import solve
 from .text_def import *
 def number_to_string_3digit(number)->str:
+    '''
+    Process 3-digit numbers cases seperately
+    '''
     if number >= 1000:
         raise ValueError
     if number < 10:
@@ -34,12 +37,10 @@ def number_to_string(num):
     '''
     For generating the test case
     '''
-    # fake output 555555531
-    # return "five hundred fifty-five million five hundred fifty-five thousand five hundred thirty-one"
     if num > 1e9:
         print("Out of range, the input number should be less than 1e9")
         raise ValueError
-    if num > 1e6: # one million        
+    if num >= 1e6: # one million        
         remainder = int(num % 1e6)
         quotient = int(num / 1e6)
         if remainder == 0:
@@ -47,7 +48,7 @@ def number_to_string(num):
         else:
             return "{} million {}".format(number_to_string_3digit(quotient), 
                                           number_to_string(remainder))
-    elif num > 1e3:
+    elif num >= 1e3:
         remainder = int(num % 1e3)
         quotient = int(num / 1e3)
         if remainder == 0:
@@ -62,16 +63,19 @@ def number_to_string(num):
 
 
 def main():
-    # for test_num in range(1000000000):
-    for test_num in range(1):
-        test_num = 555555531 # just use fake input 
+    for test_num in range(10000000):
+        # for test_num in range():
+        # test_num = 555555531 # just use fake input 
         test_str = number_to_string(test_num)
         print(test_str)
         ans_num = solve(test_num)
         if test_num == ans_num:
-            print("Pass")
+            # print("Pass")
+            pass
         else:
             print("Fail")
+            print("-- str : {}".format(test_str))
+            print("-- ans : {}".format(ans_num))
 
 if __name__ == "__main__":
     main()
