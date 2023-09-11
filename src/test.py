@@ -63,9 +63,15 @@ def number_to_string(num):
 
 
 def main():
-    for test_num in range(10000000):
+    import random
+    random.seed(5001)
+    test_case_amount = int(1e9)
+    for cnt, test_num in enumerate(range(test_case_amount)):
         test_str = number_to_string(test_num)
         ans_num = solve(test_str)
+        if random.randint(0, 4999) == 0:
+            print("Test Case Running : {:08d}/{}\t{}              "
+                  .format(cnt, test_case_amount, test_str), end='\r')
         if test_num == ans_num:
             # print("Pass")
             pass
@@ -74,6 +80,8 @@ def main():
             print("-- str : {}".format(test_str))
             print("-- ans : {}".format(ans_num))
             break
+    
+    print("                                        ",end="\r")
     print("Congratulation! Pass!")
 
 if __name__ == "__main__":
